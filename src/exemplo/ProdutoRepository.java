@@ -13,11 +13,13 @@ public class ProdutoRepository {
 	}
 	
 	public void adicionaProduto(Produto produto) {
-		this.catalogo.put(produto.getId(), produto);
+		if (produto != null && !this.catalogo.containsKey(produto.getId()))  
+			this.catalogo.put(produto.getId(), produto);
 	}
 	
 	public void removeProduto(Produto produto) {
-		this.catalogo.remove(produto.getId());
+		if (produto != null)
+			this.catalogo.remove(produto.getId());
 	}
 	
 	public void editaProduto() {
